@@ -1,4 +1,3 @@
-/* eslint-disable */
 import { loginByUsername, logout, getUserInfo } from '@/api/login'
 import { getToken, setToken, removeToken } from '@/utils/auth'
 
@@ -50,10 +49,9 @@ const user = {
       const username = userInfo.username.trim()
       return new Promise((resolve, reject) => {
         loginByUsername(username, userInfo.password).then(response => {
-            console.log('response: ', response)
           const data = response.data
-          commit('SET_TOKEN', data.access_token)
-          setToken(response.data.access_token)
+          commit('SET_TOKEN', data.data.access_token)
+          setToken(data.data.access_token)
           resolve()
         }).catch(error => {
           reject(error)
@@ -69,17 +67,24 @@ const user = {
             reject('error')
           }
           const data = response.data
+          console.log('data: ', data)
 
-          if (data.roles && data.roles.length > 0) { // 验证返回的roles是否是一个非空数组
-            commit('SET_ROLES', data.roles)
-          } else {
-            reject('getInfo: roles must be a non-null array !')
-          }
+        //   if (data.roles && data.roles.length > 0) { // 验证返回的roles是否是一个非空数组
+        //     // commit('SET_ROLES', data.roles)
+        //     commit('SET_ROLES', ['admin'])
 
-          commit('SET_NAME', data.name)
-          commit('SET_AVATAR', data.avatar)
+        //   } else {
+        //     reject('getInfo: roles must be a non-null array !')
+        //   }
+        if (data.err_code == 0) {
+          commit('SET_ROLES', ['admin'])
+          commit('SET_NAME', data.data.username)
+          commit('SET_AVATAR', data.data.avatar_url)
           commit('SET_INTRODUCTION', data.introduction)
           resolve(response)
+        }else {
+            reject(data.err_msg)
+        }
         }).catch(error => {
           reject(error)
         })

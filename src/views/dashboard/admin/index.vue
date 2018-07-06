@@ -1,5 +1,5 @@
 <template>
-  <div class="dashboard-editor-container">
+  <!-- <div class="dashboard-editor-container">
     <github-corner></github-corner>
 
     <panel-group @handleSetLineChartData="handleSetLineChartData"></panel-group>
@@ -38,17 +38,18 @@
       </el-col>
     </el-row>
 
-  </div>
+  </div> -->
+  <h3>欢迎登陆</h3>
 </template>
 
-<script>
+<!-- <script>
 import GithubCorner from '@/components/GithubCorner'
 import PanelGroup from './components/PanelGroup'
 import LineChart from './components/LineChart'
 import RaddarChart from './components/RaddarChart'
 import PieChart from './components/PieChart'
 import BarChart from './components/BarChart'
-import TransactionTable from './components/TransactionTable'
+// import TransactionTable from './components/TransactionTable'
 import TodoList from './components/TodoList'
 import BoxCard from './components/BoxCard'
 
@@ -80,7 +81,7 @@ export default {
     RaddarChart,
     PieChart,
     BarChart,
-    TransactionTable,
+    // TransactionTable,
     TodoList,
     BoxCard
   },
@@ -95,9 +96,9 @@ export default {
     }
   }
 }
-</script>
+</script> -->
 
-<style rel="stylesheet/scss" lang="scss" scoped>
+<!-- <style rel="stylesheet/scss" lang="scss" scoped>
 .dashboard-editor-container {
   padding: 32px;
   background-color: rgb(240, 242, 245);
@@ -107,4 +108,4 @@ export default {
     margin-bottom: 32px;
   }
 }
-</style>
+</style> -->

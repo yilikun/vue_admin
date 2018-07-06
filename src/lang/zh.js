@@ -52,7 +52,20 @@ export default {
     exportZip: 'Export Zip',
     theme: '换肤',
     clipboardDemo: 'Clipboard',
-    i18n: '国际化'
+    i18n: '国际化',
+    //用户
+    user: '用户',
+    User: '用户',
+    userUpdate: '修改密码',
+    userInfo: '用户信息',
+    //游戏管理
+    gameManage: '游戏管理',
+    roomCardManage: '房卡商城管理',
+    //商品列表
+    goodsList: '商品列表',
+    informManage: '通知管理',
+    email: '邮件',
+    payManage: '支付管理'
   },
   navbar: {
     logOut: '退出登录',
@@ -104,7 +117,6 @@ export default {
     add: '添加',
     export: '导出',
     reviewer: '审核人',
-    id: '序号',
     date: '时间',
     author: '作者',
     readings: '阅读数',
@@ -115,7 +127,13 @@ export default {
     draft: '草稿',
     delete: '删除',
     cancel: '取 消',
-    confirm: '确 定'
+    // 元来互娱
+    confirm: '确 定',
+    disabled: '是否禁用',
+    description: '描述',
+    number: '数量',
+    price: '金额',
+    id: '序号'
   },
   errorLog: {
     tips: '请点击右上角bug小图标',

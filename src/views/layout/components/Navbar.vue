@@ -11,7 +11,7 @@
         <screenfull class="screenfull right-menu-item"></screenfull>
       </el-tooltip>
 
-      <lang-select class="international right-menu-item"></lang-select>
+      <!-- <lang-select class="international right-menu-item"></lang-select> -->
 
       <el-tooltip effect="dark" :content="$t('navbar.theme')" placement="bottom">
         <theme-picker class="theme-switch right-menu-item"></theme-picker>
@@ -50,6 +50,8 @@ import ErrorLog from '@/components/ErrorLog'
 import Screenfull from '@/components/Screenfull'
 import LangSelect from '@/components/LangSelect'
 import ThemePicker from '@/components/ThemePicker'
+import { logout } from '@/api/login'
+import { getToken, setToken, removeToken } from '@/utils/auth'
 
 export default {
   components: {
@@ -72,9 +74,12 @@ export default {
       this.$store.dispatch('toggleSideBar')
     },
     logout() {
-      this.$store.dispatch('LogOut').then(() => {
-        location.reload()// In order to re-instantiate the vue-router object to avoid bugs
-      })
+    //   this.$store.dispatch('LogOut').then(() => {
+    //     location.reload()// In order to re-instantiate the vue-router object to avoid bugs
+    //   })
+            removeToken()
+            // window.location.href = '/login'  //这个跳转没起作用，估计是vue路由模块的设置问题
+            this.$router.push('/login') //这个很好用
     }
   }
 }
